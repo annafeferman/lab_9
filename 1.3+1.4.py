@@ -50,6 +50,8 @@ while True:  # зацикливаем программу
 
 
     # реализуем тот же метод, только для сортировки массива по убыванию, меняя в условии знак больше на знак меньше
+
+
     def bubble_sort_descending(my_list):
         comparisons = 0
         changes = 0
@@ -69,18 +71,20 @@ while True:  # зацикливаем программу
         changes = 0
         for i in range(len(my_list)):
             min_index = i
-            for j in range(i + 1, len(my_list)): # перебираем элементы массива вложенным циклом, сравнивая их значения
-                if my_list[j] < my_list[min_index]: # где el[j] идет после el[i]
+            for j in range(i + 1, len(my_list)):  # перебираем элементы массива вложенным циклом, сравнивая их значения
+                if my_list[j] < my_list[min_index]:  # где el[j] идет после el[i]
                     comparisons += 1
                     min_index = j
-            my_list[i], my_list[min_index] = my_list[min_index], my_list[i] # меняем, если найдено нужное значение
+            my_list[i], my_list[min_index] = my_list[min_index], my_list[i]  # меняем, если найдено нужное значение
             changes += 1
 
-        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes) # считаем сравнения и обмены
+        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes)  # считаем сравнения и обмены
         return my_list
 
 
     # реализуем тот же метод, только для сортировки массива по убыванию
+
+
     def selection_sort_descending(my_list):
         comparisons = 0
         changes = 0
@@ -101,20 +105,22 @@ while True:  # зацикливаем программу
         comparisons = 0
         changes = 0
         for i in range(1, len(my_list)):
-            k = my_list[i] # присваиваем ключу значение номера элемента
-            min_index = i - 1 # начинаем отсчет с минимального номера
-            while min_index >= 0 and my_list[min_index] > k: # сравниваем значение элемента с прерыдущим
+            k = my_list[i]  # присваиваем ключу значение номера элемента
+            min_index = i - 1  # начинаем отсчет с минимального номера
+            while min_index >= 0 and my_list[min_index] > k:  # сравниваем значение элемента с прерыдущим
                 comparisons += 2
-                my_list[min_index + 1] = my_list[min_index] # меняем, если он больше
+                my_list[min_index + 1] = my_list[min_index]  # меняем, если он больше
                 changes += 1
                 min_index -= 1
             my_list[min_index + 1] = k
 
-        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes) # считаем сравнения и обмены
+        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes)  # считаем сравнения и обмены
         return my_list
 
 
     # реализуем тот же метод, только для сортировки массива по убыванию
+
+
     def insertion_sort_descending(my_list):
         comparisons = 0
         changes = 0
@@ -136,30 +142,32 @@ while True:  # зацикливаем программу
         comparisons = 0
         changes = 0
         for i in range(len(my_list) // 2):
-            swap = False # присваем значенрие фолз в начале каждой итерации
+            swap = False  # присваем значенрие фолз в начале каждой итерации
             for j in range(1 + i, len(my_list) - i):
-                if my_list[j] < my_list[j - 1]: # используем bubble sort
+                if my_list[j] < my_list[j - 1]:  # используем bubble sort
                     comparisons += 1
                     my_list[j], my_list[j - 1] = my_list[j - 1], my_list[j]
                     changes += 1
                     swap = True
-            if not swap: # если ничего не изменилось, прерываем цикл (элементы отсортированы)
+            if not swap:  # если ничего не изменилось, прерываем цикл (элементы отсортированы)
                 break
             swap = False
-            for j in range(len(my_list) - i - 1, i, -1): # проходим цикл без последнего элемента
-                if my_list[j] < my_list[j - 1]: # так как он уже на своем месте
+            for j in range(len(my_list) - i - 1, i, -1):  # проходим цикл без последнего элемента
+                if my_list[j] < my_list[j - 1]:  # так как он уже на своем месте
                     comparisons += 1
-                    my_list[j], my_list[j - 1] = my_list[j - 1], my_list[j] # меняем нужные элементы местами
+                    my_list[j], my_list[j - 1] = my_list[j - 1], my_list[j]  # меняем нужные элементы местами
                     changes += 1
                     swap = True
-            if not swap: # если ничего не изменилось, прерываем цикл
+            if not swap:  # если ничего не изменилось, прерываем цикл
                 break
 
-        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes) # считаем сравнения и обмены
+        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes)  # считаем сравнения и обмены
         return my_list
 
 
     # реализуем тот же метод, только для сортировки массива по убыванию
+
+
     def cocktail_sort_descending(my_list):
         comparisons = 0
         changes = 0
@@ -191,26 +199,28 @@ while True:  # зацикливаем программу
         comparisons = 0
         changes = 0
         n = len(my_list)
-        gap = n // 2 # устанавливаем базовый шаг, деля длину массива на 2, потом он будет уменьшатся
-        while gap > 0: # цикл выполняется до тех пор, пока окончательно не уменьшится шаг
+        gap = n // 2  # устанавливаем базовый шаг, деля длину массива на 2, потом он будет уменьшатся
+        while gap > 0:  # цикл выполняется до тех пор, пока окончательно не уменьшится шаг
             comparisons += 1
             for i in range(gap, n):
-                temp = my_list[i] # добавляем элемент, который уже отсортирован, во временную переменную
-                j = i # добавляем отсортированные элементы на нужную позицию
+                temp = my_list[i]  # добавляем элемент, который уже отсортирован, во временную переменную
+                j = i  # добавляем отсортированные элементы на нужную позицию
                 while j >= gap and my_list[j - gap] > temp:
                     comparisons += 2
-                    my_list[j] = my_list[j - gap] # меняем элементы местами
+                    my_list[j] = my_list[j - gap]  # меняем элементы местами
                     changes += 1
                     j -= gap
 
-                my_list[j] = temp # возвращаем значения из временной переменной на нужное место
+                my_list[j] = temp  # возвращаем значения из временной переменной на нужное место
             gap //= 2
 
-        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes) # считаем сравнения и обмены
+        print('Comparisons_ascending: ', comparisons, '  Changes_ascending: ', changes)  # считаем сравнения и обмены
         return my_list
 
 
     # реализуем тот же метод, только для сортировки массива по убыванию
+
+
     def shell_sort_descending(my_list):
         comparisons = 0
         changes = 0
@@ -235,25 +245,28 @@ while True:  # зацикливаем программу
 
 
     def heapify_asc(my_list, n, i):
-        largest = i # присваиваем значение самого большого элемента
-        left = 2 * i + 1 # разбиваем условно дерево на левую и правую части
+        largest = i  # присваиваем значение самого большого элемента
+        left = 2 * i + 1  # разбиваем условно дерево на левую и правую части
         right = 2 * i + 2
 
-        if left < n and my_list[i] < my_list[left]: # цикл сверяет значение левого и правого элемента каждой "подветки"
+        if left < n and my_list[i] < my_list[left]:  # цикл сверяет значение левого и правого элемента каждой "подветки"
             largest = left
 
-        if right < n and my_list[largest] < my_list[right]: # то же самое, если наибольшее значение - справа
+        if right < n and my_list[largest] < my_list[right]:  # то же самое, если наибольшее значение - справа
             largest = right
 
         if largest != i:
-            my_list[i], my_list[largest] = my_list[largest], my_list[i] # меняем неотсортированные элементы,
-    # чтобы получить сортирующее бинарное дерево
+            my_list[i], my_list[largest] = my_list[largest], my_list[i]  # меняем неотсортированные элементы,
+            # чтобы получить сортирующее бинарное дерево
             heapify_asc(my_list, n, largest)
         return my_list
+
 
     # получив сортирующее бинарное дерево в преыдущей функции, используем его,
     # чтобы отсортировать элемента из массива,
     # для этого проходим по ним циклами в строках 261 - 266
+
+
     def heap_sort_ascending(my_list):
         n = len(my_list)
         heapify_asc(my_list, n, 0)
@@ -269,6 +282,8 @@ while True:  # зацикливаем программу
 
 
     # реализуем тот же метод, только для сортировки массива по убыванию
+
+
     def heapify_desc(my_list, n, i):
         smallest = i
         left = 2 * i + 1
@@ -299,7 +314,7 @@ while True:  # зацикливаем программу
         return my_list
 
 
-    print('Old list: ', old_list) # выводим старый список
+    print('Old list: ', old_list)  # выводим старый список
     # учитывая выбор пользователя, запускаем нужную функцию (строки 304 - 327)
     if method == '1' and up_down == '1':
         print('Ascending new list: ', bubble_sort_ascending(old_list).copy())
