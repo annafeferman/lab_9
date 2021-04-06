@@ -173,34 +173,36 @@ class ShellSort:
         print('This is shell sort')
 
 
-def SortMethod():
-    method = DataInput.getMethod(DataInput)
-    if method == 1:
-        return BubbleSort
-    elif method == 2:
-        return SelectionSort
-    elif method == 3:
-        return InsertionSort
-    elif method == 4:
-        return CocktailSort
-    else:
-        return ShellSort
+class RunProgram:
 
 
-def RunProgram():
-    while True:
-        oldList = DataInput.arrayInput(DataInput)
-        sortMethod = SortMethod()
-        upDown = DataInput.getUpDown(DataInput)
-        print('\nOld list: ', oldList)
-        b = sortMethod()
-        b.sortedArray(oldList, upDown)
-        print('Program execution time is ', timeit.timeit(number=100000))
-        repeat = input('\nInput 1 if you want to restart the program. If you do not, input anything else: ')
-        if repeat == '1':  # хочет повторить программу
-            continue
+    def SortMethod(self):
+        method = DataInput.getMethod(DataInput)
+        if method == 1:
+            return BubbleSort
+        elif method == 2:
+            return SelectionSort
+        elif method == 3:
+            return InsertionSort
+        elif method == 4:
+            return CocktailSort
         else:
-            break
+            return ShellSort
 
 
-RunProgram()
+    def Run(self):
+        while True:
+            oldList = DataInput.arrayInput(DataInput)
+            sortMethod = self.SortMethod()
+            upDown = DataInput.getUpDown(DataInput)
+            print('\nOld list: ', oldList)
+            b = sortMethod()
+            b.sortedArray(oldList, upDown)
+            print('Program execution time is ', timeit.timeit(number=100000))
+            repeat = input('\nInput 1 if you want to restart the program. If you do not, input anything else: ')
+            if repeat == '1':  # хочет повторить программу
+                continue
+            else:
+                break
+
+RunProgram.Run(RunProgram)
